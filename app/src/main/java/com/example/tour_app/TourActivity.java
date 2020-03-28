@@ -1,6 +1,7 @@
 package com.example.tour_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,41 +16,14 @@ public class TourActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tour);
 
-        TextView residentHalls = (TextView) findViewById(R.id.resident_halls);
-        residentHalls.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent ResidentHallsIntent = new Intent(TourActivity.this, ResidentHallsActivity.class);
-                startActivity(ResidentHallsIntent);
-            }
-        });
+        // Find the view pager that will allow the user to swipe between fragments
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
-        TextView lectureHalls = (TextView) findViewById(R.id.lecture_halls);
-        lectureHalls.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent LectureHallsIntent = new Intent(TourActivity.this, LectureHallsActivity.class);
-                startActivity(LectureHallsIntent);
-            }
-        });
+        // Create an adapter that knows which fragment should be shown on each page
+        CategoryAdapter adapter = new CategoryAdapter(getSupportFragmentManager());
 
-        TextView eatries = (TextView) findViewById(R.id.eatries);
-        eatries.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent eatriesIntent = new Intent(TourActivity.this, Eatries.class);
-                startActivity(eatriesIntent);
-            }
-        });
-
-        TextView others = (TextView) findViewById(R.id.others);
-        others.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent OthersIntent = new Intent(TourActivity.this, Others.class);
-                startActivity(OthersIntent);
-            }
-        });
+        // Set the adapter onto the view pager
+        viewPager.setAdapter(adapter);
 
     }
 }
