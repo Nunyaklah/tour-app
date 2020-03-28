@@ -21,13 +21,11 @@ public class OthersFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.activity_others, container, false);
         //ArrayList of places and locations
-
         ArrayList<PlacesDetails> places = new ArrayList<PlacesDetails>();
         places.add(new PlacesDetails("Registry", "Behind Commonwealth",R.drawable.placeholder));
         places.add(new PlacesDetails("Banking Square", "Near night market",R.drawable.placeholder));

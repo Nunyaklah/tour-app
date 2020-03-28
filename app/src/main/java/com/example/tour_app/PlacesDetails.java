@@ -16,7 +16,6 @@ public class PlacesDetails {
     public String getLocation() {
         return mLocation;
     }
-
     public int getmImageResourceId(){
         return  mImageResourceId;
     }
